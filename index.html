@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSERVADOR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="game-title">OBSERVADOR</h1>
+            <div class="header-controls">
+                <button id="language-toggle" class="btn-icon" title="Alternar idioma">
+                    <i class="fas fa-language"></i> <span id="language-text">EN</span>
+                </button>
+                <button id="support-btn" class="btn-support">
+                    <i class="fas fa-heart"></i> <span id="support-text">APOIE O PROJETO</span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-container">
+                <div class="game-stats">
+                    <div class="stat">
+                        <span id="questions-text">Perguntas:</span>
+                        <span id="question-counter">0</span>
+                    </div>
+                    <div class="stat">
+                        <span id="trigger-text">Gatilho:</span>
+                        <span id="trigger-counter">0/50</span>
+                    </div>
+                    <div class="stat">
+                        <span id="responses-text">Respostas:</span>
+                        <span id="response-counter">0</span>
+                    </div>
+                </div>
+
+                <div class="game-text" id="game-text">
+                    <p id="narrator-text">Inicializando sistema de observação...</p>
+                </div>
+
+                <div class="input-area">
+                    <input type="text" id="player-input" autocomplete="off" 
+                           placeholder="Digite sua resposta..." autofocus>
+                    <button id="submit-btn" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> <span id="submit-text">Enviar</span>
+                    </button>
+                </div>
+
+                <div class="responses-container">
+                    <h3 id="responses-title">Histórico de Respostas</h3>
+                    <div class="responses-list" id="responses-list">
+                        <!-- As respostas aparecerão aqui -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p id="footer-text">Jogo textual interativo. Todas as respostas são registradas.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

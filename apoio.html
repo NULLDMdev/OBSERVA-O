@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoio - OBSERVADOR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container support-container">
+        <header>
+            <h1>APOIO AO PROJETO</h1>
+        </header>
+
+        <main class="support-main">
+            <div class="support-content">
+                <div class="support-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                
+                <h2 id="thanks-text">Obrigado por considerar apoiar este projeto.</h2>
+                
+                <p id="support-desc">
+                    Sua contribuição ajuda a manter o desenvolvimento de experiências narrativas únicas.
+                    Se desejar apoiar, utilize a chave PIX abaixo:
+                </p>
+                
+                <div class="pix-container">
+                    <h3 id="pix-text">PIX (Celular):</h3>
+                    <div class="pix-code" id="pix-code">
+                        48991198987
+                        <button id="copy-pix" class="btn-copy" title="Copiar PIX">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                    <p class="pix-hint" id="copied-text">Clique no código para copiar</p>
+                </div>
+                
+                <div class="support-actions">
+                    <a href="index.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> <span id="back-text">Voltar para o jogo</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>OBSERVADOR - Jogo Narrativo Interativo</p>
+        </footer>
+    </div>
+
+    <script>
+        // Script para copiar o PIX
+        document.getElementById('copy-pix').addEventListener('click', function() {
+            const pixCode = document.getElementById('pix-code').textContent.trim();
+            navigator.clipboard.writeText(pixCode).then(() => {
+                const hint = document.getElementById('copied-text');
+                hint.textContent = 'PIX copiado para a área de transferência!';
+                hint.style.color = '#d4af37';
+                
+                setTimeout(() => {
+                    hint.textContent = 'Clique no código para copiar';
+                    hint.style.color = '';
+                }, 3000);
+            });
+        });
+
+        // Suporte para múltiplos idiomas
+        const translations = {
+            pt: {
+                thanks: "Obrigado por considerar apoiar este projeto.",
+                supportDesc: "Sua contribuição ajuda a manter o desenvolvimento de experiências narrativas únicas. Se desejar apoiar, utilize a chave PIX abaixo:",
+                pix: "PIX (Celular):",
+                copied: "Clique no código para copiar",
+                back: "Voltar para o jogo",
+                footer: "OBSERVADOR - Jogo Narrativo Interativo"
+            },
+            en: {
+                thanks: "Thank you for considering supporting this project.",
+                supportDesc: "Your contribution helps maintain the development of unique narrative experiences. If you wish to support, use the PIX key below:",
+                pix: "PIX (Mobile):",
+                copied: "Click on the code to copy",
+                back: "Back to the game",
+                footer: "OBSERVER - Interactive Narrative Game"
+            }
+        };
+
+        // Verificar se há idioma salvo
+        let currentLang = localStorage.getItem('observer_lang') || 'pt';
+        
+        // Aplicar traduções
+        function applyTranslations(lang) {
+            document.getElementById('thanks-text').textContent = translations[lang].thanks;
+            document.getElementById('support-desc').textContent = translations[lang].supportDesc;
+            document.getElementById('pix-text').textContent = translations[lang].pix;
+            document.getElementById('copied-text').textContent = translations[lang].copied;
+            document.getElementById('back-text').textContent = translations[lang].back;
+            document.querySelector('footer p').textContent = translations[lang].footer;
+        }
+        
+        // Aplicar tradução inicial
+        applyTranslations(currentLang);
+    </script>
+</body>
+</html>
